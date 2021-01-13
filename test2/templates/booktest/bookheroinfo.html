@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		<div class="bs-example" data-example-id="hoverable-table">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>图书id</th>
+          <th>图书名称</th>
+          <th>英雄姓名</th>
+          <th>是否删除</th>
+          <th>技能</th>
+          <th>图书发布日期</th>
+          <th>图书阅读量</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for hero in hlist%}
+        <tr>
+          <th scope="row">{{hero.hbook_id}}</th>
+          <td>{{hero.hbook.btitle}}</td>
+          <td>{{hero.hname}}</td>
+          <td>{{hero.isDelete}}</td>
+          <td>{{hero.hcomment}}</td>
+          <td>{{hero.hbook.bpub_date}}</td>
+          <td>{{hero.hbook.bread}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+<div class="container">
+<div class="row">
+{%for pindex in plist%}
+    {%if pIndex == pindex%}
+        {{pindex}}&nbsp;&nbsp;
+    {%else%}
+        <a href="/displayInfo{{pindex}}">{{pindex}}</a>&nbsp;&nbsp;
+    {%endif%}
+{%endfor%}
+</div>
+</div>
+		</div>
+		<br>
+		<br>
+	</div>
+</body>
+</html>
