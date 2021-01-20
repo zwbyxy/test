@@ -7,9 +7,9 @@ import time
 
 # 在任务处理者一端加这几句
 import os
-# import django
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dailyfresh.settings")
-# django.setup()
+import django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dailyfresh.settings")
+django.setup()
 
 from goods.models import GoodsType,IndexGoodsBanner,IndexPromotionBanner,IndexTypeGoodsBanner
 from django_redis import get_redis_connection
@@ -27,7 +27,7 @@ def send_register_active_email(to_email, username, token):
     message = ''
     sender = settings.EMAIL_FROM
     receiver = [to_email]
-    html_message = '<h1>%s, 欢迎您成为天天生鲜注册会员</h1>请点击下面链接激活您的账户<br/><a href="http://127.0.0.1:8000/user/active/%s">http://127.0.0.1:8000/user/active/%s</a>' % (username, token, token)
+    html_message = '<h1>%s, 欢迎您成为天天生鲜注册会员</h1>请点击下面链接激活您的账户<br/><a href="http://zwbyxy2.e1.luyouxia.net:20800/user/active/%s">http://zwbyxy2.e1.luyouxia.net:20800/user/active/%s</a>' % (username, token, token)
 
     send_mail(subject, message, sender, receiver, html_message=html_message)
     time.sleep(5)
