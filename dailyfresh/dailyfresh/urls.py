@@ -25,7 +25,7 @@ urlpatterns = [
     #url(r'^search', include('haystack.urls')), # 全文检索框架
     path('search/',include(('haystack.urls','haystack'),namespace='haystack')),
     #url(r'^user/', include('user.urls', namespace='user')), # 用户模块
-    path('user/',include(('user.urls','user'),namespace='user')),
+    path('user',include(('user.urls','user'),namespace='user')),
     #url(r'^cart/', include('cart.urls', namespace='cart')), # 购物车模块
     path('cart/',include(('cart.urls','cart'),namespace='cart')),
     #url(r'^order/', include('order.urls', namespace='order')), # 订单模块
