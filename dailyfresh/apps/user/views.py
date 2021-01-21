@@ -175,10 +175,11 @@ class ActiveView(View):
         # 进行解密，获取要激活的用户信息
         serializer = Serializer(settings.SECRET_KEY, 3600)
         try:
+            print(token)
             info = serializer.loads(token)
             # 获取待激活用户的id
             user_id = info['confirm']
-
+            print(user_id)
             # 根据id获取用户信息
             user = User.objects.get(id=user_id)
             user.is_active = 1
@@ -258,6 +259,7 @@ class LogoutView(View):
     def get(self, request):
         '''退出登录'''
         # 清除用户的session信息
+        #request.session.flush()
         logout(request)
 
         # 跳转到首页
@@ -273,7 +275,7 @@ class UserInfoView(LoginRequiredMixin, View):
         # 如果用户未登录->user是AnonymousUser类的一个实例对象
         # 如果用户登录->user是User类的一个实例对象
         # request.user.is_authenticated()
-
+        print('用户中心')
         # 获取用户的个人信息
         user = request.user
         address = Address.objects.get_default_address(user)
@@ -392,7 +394,6 @@ class AddressView(LoginRequiredMixin, View):
             # 不存在默认收货地址
             address = None
         # address = Address.objects.get_default_address(user)
-
         # 使用模板
         return render(request, 'user_center_site.html', {'page':'address', 'address':address})
 

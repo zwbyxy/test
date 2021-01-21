@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'goods', # 商品模块
     'cart', # 购物车模块
     'order', # 订单模块
+    'help', # 学习文档
 )
 
 #MIDDLEWARE_CLASSES = (
@@ -172,7 +173,7 @@ DEFAULT_FILE_STORAGE='utils.fdfs.storage.FDFSStorage'
 FDFS_CLIENT_CONF='./utils/fdfs/client.conf'
 
 # 设置fdfs存储服务器上nginx的IP和端口号
-FDFS_URL='http://172.16.179.131:8888/'
+FDFS_URL='http://zwbyxy.e1.luyouxia.net:29258/'
 
 # 全文检索框架的配置
 HAYSTACK_CONNECTIONS = {
